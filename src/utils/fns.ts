@@ -44,14 +44,14 @@ export function transformURLSData(data: Tables<"urls">[]): CardToView[] {
     const daysToExpire = getDaysToExpire(expires_at!);
     const obj: CardToView = {
       id: "",
-      urlComplete: "",
-      daysToExpire: 0,
-      shortId: "",
+      url_complete: "",
+      days_to_expire: 0,
+      short_id: "",
     };
     obj.id = id;
-    obj.urlComplete = original_url;
-    obj.shortId = short_id;
-    obj.daysToExpire = daysToExpire;
+    obj.url_complete = original_url;
+    obj.short_id = short_id;
+    obj.days_to_expire = daysToExpire;
     dataMorphed.push(obj);
   });
   return dataMorphed;

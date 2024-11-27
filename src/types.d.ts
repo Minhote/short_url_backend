@@ -1,6 +1,6 @@
 export type CardToView = {
   id: string;
-  urlComplete: string;
-  daysToExpire: number;
-  shortId: string;
+  url_complete: string;
+  days_to_expire: number;
+  short_id: string;
 };
