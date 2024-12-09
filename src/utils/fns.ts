@@ -1,5 +1,5 @@
 import { Tables } from "../database.types";
-import { CardToView } from "../types";
+import { CardToView, MData } from "../types";
 
 export function getFormattedDateUTC(date?: Date, numberOfDays = 1) {
   if (date) {
@@ -38,20 +38,22 @@ export function getFormattedDateUTC(date?: Date, numberOfDays = 1) {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}+00`;
 }
 
-export function transformURLSData(data: Tables<"urls">[]): CardToView[] {
+export function transformURLSData(data: MData[]): CardToView[] {
   const dataMorphed: CardToView[] = [];
-  data.map(({ id, original_url, short_id, expires_at }) => {
+  data.map(({ id, original_url, short_id, expires_at, short_url }) => {
     const daysToExpire = getDaysToExpire(expires_at!);
     const obj: CardToView = {
       id: "",
       url_complete: "",
       days_to_expire: 0,
       short_id: "",
+      short_url: "",
     };
     obj.id = id;
     obj.url_complete = original_url;
     obj.short_id = short_id;
     obj.days_to_expire = daysToExpire;
+    obj.short_url = short_url;
     dataMorphed.push(obj);
   });
   return dataMorphed;

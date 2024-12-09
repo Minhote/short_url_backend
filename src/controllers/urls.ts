@@ -21,7 +21,22 @@ export class URLSController {
     if (!resp) {
       res.status(400).json({ message: "Error al insertar datos" });
     } else {
-      res.status(200).json(resp);
+      res.status(resp.status).json(resp.data);
+    }
+  }
+
+  // Endpoint para redigirir o actualizar url
+  static async manageShortId(req: Request, res: Response) {
+    const { id } = req.params;
+    const resp = await URLModel.manageShortId(id);
+
+    if (resp && resp.data) {
+      // Redirigir al usuario
+      res.redirect(302, resp.data.original_url);
+    } else {
+      res
+        .status(404)
+        .json({ message: "No se encontró ninguna url con ese id" });
     }
   }
 }
