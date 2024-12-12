@@ -55,9 +55,10 @@ export class URLModel {
     this.validateConnection();
 
     const { data, error, status } = await supabase
-      .from("urls")
-      .select()
-      .eq("short_id", id);
+      .rpc("increment_clicks", {
+        short_id_input: id,
+      })
+      .select();
 
     if (error) {
       console.log(error);

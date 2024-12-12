@@ -38,4 +38,4 @@ import { getDaysToExpire, getFormattedDateUTC } from "./utils/fns";
 //   (utcExpiration.getTime() - utcNow.getTime()) / (1000 * 60 * 60 * 24)
 // );
 
-console.log(getDaysToExpire("2024-08-28 20:19:04"));
+// console.log(getDaysToExpire("2024-08-28 20:19:04"));

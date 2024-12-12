@@ -66,7 +66,19 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      [_ in never]: never;
+      increment_clicks: {
+        Args: {
+          short_id_input: string;
+        };
+        Returns: {
+          id: string;
+          original_url: string;
+          short_id: string;
+          created_at: string;
+          expires_at: string;
+          clicks: number;
+        }[];
+      };
     };
     Enums: {
       [_ in never]: never;
