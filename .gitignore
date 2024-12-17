@@ -3,3 +3,7 @@ node_modules/
 
 # Enviroment Variables
 .env
+
+
+# Files 
+src/date.ts

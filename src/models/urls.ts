@@ -67,4 +67,25 @@ export class URLModel {
 
     return { data: data[0], status };
   }
+
+  static async updateUrlById(id: string) {
+    this.validateConnection();
+
+    const { data, error, status } = await supabase
+      .from("urls")
+      .update({ expires_at: getFormattedDateUTC() })
+      .eq("short_id", id)
+      .select();
+
+    if (error) {
+      console.log(error);
+      return false;
+    }
+
+    const dataMorphed: MData[] = data.map((el) => ({
+      ...el,
+      short_url: `${baseURL}/${el.short_id}`,
+    }));
+    return { data: dataMorphed, status };
+  }
 }
