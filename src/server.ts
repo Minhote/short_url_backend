@@ -1,10 +1,10 @@
 import "dotenv/config";
 import express, { Request, Response } from "express";
 import { createClient } from "@supabase/supabase-js";
-import URLSROUTER from "./routes/urls.js";
-import { middlewareCors } from "./middleware/cors.js";
+import URLSROUTER from "./routes/urls";
+import { middlewareCors } from "./middleware/cors";
 import { Database } from "./database.types";
-import { URLModel } from "./models/urls.js";
+import { URLModel } from "./models/urls";
 
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
   throw new Error(

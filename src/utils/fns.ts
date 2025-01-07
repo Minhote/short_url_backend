@@ -1,4 +1,3 @@
-import { Tables } from "../database.types";
 import { CardToView, MData } from "../types";
 
 export function getFormattedDateUTC(date?: Date, numberOfDays = 1) {
