@@ -4,7 +4,10 @@ import { v4 as uuidv4 } from "uuid";
 import { getFormattedDateUTC } from "../utils/fns";
 import { MData } from "../types";
 
-const baseURL = process.env.BASE_URL ?? "http://localhost:3000";
+const baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://short-url-backend-8807.onrender.com"
+    : "http://localhost:3000";
 
 export class URLModel {
   private static validateConnection() {
