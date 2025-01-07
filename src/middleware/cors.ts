@@ -13,7 +13,7 @@ export const middlewareCors = () =>
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://ellocoqueama.com",
-        "https://short-url-frontend-zyzn.onrender.com/",
+        "https://short-url-frontend-zyzn.onrender.com",
       ];
 
       if (!origin) {
